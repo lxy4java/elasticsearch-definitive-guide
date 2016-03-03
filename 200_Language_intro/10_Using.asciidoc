@@ -2,7 +2,8 @@
 === 使用语言分词器
 
 
-Elastticsearch的内置分词器都是全局可用的，不需要提前配置，((("language analyzers", "using")))它们也可以在字段图中直接指定某字段：
+Elastticsearch的内置分词器都是全局可用的，不需要提前配置，((("language analyzers", "using")))
+它们也可以在字段图中直接指定在某字段上：
 
 [source,js]
 --------------------------------------------------
@@ -37,11 +38,11 @@ I'm not happy about the foxes
 
 我们无法分辨源文档中是包含单数`fox`还是复数`foxes`；单词`not`因为是停词所以被移除了，
 所以我们无法分辨源文档中是happy about foxes还是not happy about foxes，通过使用`english`
-（英语）分词器，我们能更轻松的匹配而强化了记忆力，但却降低了精确排列源文档的能力。
+（英语）分词器，我们为能更轻松的匹配而强化了记忆力，但却降低了精确排列源文档的能力。
 
 
 
-为了获得两方面的优势，我们可以使用<<multi-fields,multifields>>（多字段）对`title`建立两次索引：
+为了获得两方面的优势，我们可以使用<<multi-fields,multifields>>（多字段）对`title`字段建立两次索引：
 一次使用((("multifields", "using to index a field with two different analyzers")))`english`（英语）分词器，另一次使用`standard`（标准）分词器:
 
 [source,js]
@@ -69,7 +70,7 @@ PUT /my_index
 <2> `title.english`子字段使用`english`（英语）分词器。
 
 
-替换为该字段图，我们可以索引一些测试文档来展示怎么在搜索时使用两个字段：
+替换为该字段图后，我们可以索引一些测试文档来展示怎么在搜索时使用两个字段：
 
 [source,js]
 --------------------------------------------------
@@ -95,4 +96,4 @@ GET /_search
 
 
 感谢`title.english`字段的切词，无论我们的文档中是否含有单词`foxes`都会被搜索到，第二份文档的相关性排行要比第一份高，
-因为单词`not`在`title`字段匹配到了。
+因为在`title`字段中匹配到了单词`not`。
