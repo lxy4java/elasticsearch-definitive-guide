@@ -1,5 +1,5 @@
 [[configuring-language-analyzers]]
-=== Configuring Language Analyzers
+=== 配置各种语言分词器
 
 While the language analyzers can be used out of the box without any
 configuration, most of them ((("english analyzer", "configuring")))((("language analyzers", "configuring")))do allow you to control aspects of their
@@ -63,4 +63,3 @@ The World Health Organization does not sell organs.
 
 We discuss stemming and stopwords in much more detail in <<stemming>> and
 <<stopwords>>, respectively.
-
