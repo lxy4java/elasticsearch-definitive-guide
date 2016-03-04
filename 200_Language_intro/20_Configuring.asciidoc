@@ -2,7 +2,7 @@
 === 配置各种语言分词器
 
 
-分词器们都不需要任何配置开箱即用， ((("english analyzer", "configuring")))
+各语言分词器们都不需要任何配置开箱即用， ((("english analyzer", "configuring")))
 ((("language analyzers", "configuring")))它们中大部分都允许你明确他们的行为：
 
 [[stem-exclusion]]
