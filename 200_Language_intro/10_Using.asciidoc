@@ -22,10 +22,10 @@ PUT /my_index
 }
 --------------------------------------------------
 
-<1> `title`字段将会用`english`（英语）分词器替换默认的`standard`（标准）分词器
+<1> `title` 字段将会用 `english`（英语）分词器替换默认的`standard`（标准）分词器
 
 
-当然,文本经过((("english analyzer", "information lost with")))`english`分词处理，我们会丢失源数据：
+当然,文本经过((("english analyzer", "information lost with"))) `english` 分词处理，我们会丢失源数据：
 
 [source,js]
 --------------------------------------------------
@@ -33,17 +33,17 @@ GET /my_index/_analyze?field=title <1>
 I'm not happy about the foxes
 --------------------------------------------------
 
-<1> 切词为: `i'm`, `happi`, `about`, `fox`
+<1> 切词为: `i'm`，`happi`，`about`，`fox`
 
 
-我们无法分辨源文档中是包含单数`fox`还是复数`foxes`；单词`not`因为是停词所以被移除了，
-所以我们无法分辨源文档中是happy about foxes还是not happy about foxes，通过使用`english`
+我们无法分辨源文档中是包含单数 `fox` 还是复数 `foxes` ；单词 `not` 因为是停词所以被移除了，
+所以我们无法分辨源文档中是happy about foxes还是not happy about foxes，通过使用 `english`
 （英语）分词器，我们为能更轻松的匹配而强化了记忆力，但却降低了精确排列源文档的能力。
 
 
 
-为了获得两方面的优势，我们可以使用<<multi-fields,multifields>>（多字段）对`title`字段建立两次索引：
-一次使用((("multifields", "using to index a field with two different analyzers")))`english`（英语）分词器，另一次使用`standard`（标准）分词器:
+为了获得两方面的优势，我们可以使用<<multi-fields,multifields>>（多字段）对 `title` 字段建立两次索引：
+一次使用((("multifields", "using to index a field with two different analyzers"))) `english`（英语）分词器，另一次使用 `standard`（标准）分词器:
 
 [source,js]
 --------------------------------------------------
@@ -66,8 +66,8 @@ PUT /my_index
   }
 }
 --------------------------------------------------
-<1> 主`title`字段使用`standard`（标准）分词器。
-<2> `title.english`子字段使用`english`（英语）分词器。
+<1> 主 `title` 字段使用 `standard`（标准）分词器。
+<2> `title.english` 子字段使用 `english`（英语）分词器。
 
 
 替换为该字段映射后，我们可以索引一些测试文档来展示怎么在搜索时使用两个字段：
@@ -95,5 +95,5 @@ GET /_search
 <1> 使用<<most-fields,`most_fields`>> query type（多字段搜索语法来）让我们可以用多个字段来匹配同一段文本。
 
 
-感谢`title.english`字段的切词，无论我们的文档中是否含有单词`foxes`都会被搜索到，第二份文档的相关性排行要比第一份高，
-因为在`title`字段中匹配到了单词`not`。
+感谢 `title.english` 字段的切词，无论我们的文档中是否含有单词 `foxes` 都会被搜索到，第二份文档的相关性排行要比第一份高，
+因为在 `title` 字段中匹配到了单词 `not` 。
