@@ -2,7 +2,7 @@
 === 配置各种语言分析器
 
 
-各语言分词器们都不需要任何配置开箱即用， ((("english analyzer", "configuring")))
+各语言分析器们都不需要任何配置开箱即用， ((("english analyzer", "configuring")))
 ((("language analyzers", "configuring")))它们中大部分都允许你明确他们的行为：
 
 [[stem-exclusion]]
@@ -24,7 +24,7 @@
 关于单词 `no` 和 `not` 有件不合理的事，这俩词会反转跟在它们后面的词汇的含义。或许我们应该认为这俩词很重要，不应该把他们看成停词。
 
 
-为了自定义 `english`（英语）分词器的行为，我们需要基于 `english`（英语）分词器创建一个自定义分词器，然后添加一些配置：
+为了自定义 `english`（英语）分词器的行为，我们需要基于 `english`（英语）分析器创建一个自定义分析器，然后添加一些配置：
 
 
 [source,js]
