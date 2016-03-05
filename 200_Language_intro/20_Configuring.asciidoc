@@ -53,7 +53,7 @@ GET /my_index/_analyze?analyzer=my_english <3>
 The World Health Organization does not sell organs.
 --------------------------------------------------
 <1> 防止 `organization` 和 `organizations` 被切为词根
-<2> 指定一个自定义停词列表
+<2> 指定一个自定义停用词列表
 <3> 切词为 `world`, `health`, `organization`, `does`, `not`, `sell`, `organ`
 
 
