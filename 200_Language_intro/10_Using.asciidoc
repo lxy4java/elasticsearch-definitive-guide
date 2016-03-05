@@ -22,7 +22,7 @@ PUT /my_index
 }
 --------------------------------------------------
 
-<1> `title` 字段将会用 `english`（英语）分词器替换默认的`standard`（标准）分词器
+<1> `title` 字段将会用 `english`（英语）分词器替换默认的 `standard`（标准）分词器
 
 
 当然,文本经过((("english analyzer", "information lost with"))) `english` 分词处理，我们会丢失源数据：
