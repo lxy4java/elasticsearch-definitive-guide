@@ -12,7 +12,7 @@
 ((("stemming words", "stem word exclusion, configuring"))) “World Health Organization” 的结果，
 但是却被替换为搜索 “organ health.” 的结果。有这个困惑的原因是因为“organ”和“organization”
 有相同的词根：`organ`。通常这不是什么大问题，但是在一些特殊的文档中就会导致有歧义的结果，
-所以我们得防止单词`organization`和`organizations`被切分为词根
+所以我们得防止单词 `organization`和 `organizations`被切分为词根
 
 常用停用词::
 英语中默认的停用词列表如下：
