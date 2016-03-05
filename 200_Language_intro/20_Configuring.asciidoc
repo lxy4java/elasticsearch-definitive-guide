@@ -1,5 +1,5 @@
 [[configuring-language-analyzers]]
-=== 配置各种语言分词器
+=== 配置各种语言分析器
 
 
 各语言分词器们都不需要任何配置开箱即用， ((("english analyzer", "configuring")))
