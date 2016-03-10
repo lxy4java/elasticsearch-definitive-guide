@@ -9,7 +9,7 @@
 
  * 一种是每份 _document_ （文档） 有自己的主语言，并包含一些其他语言的片段（参考 <<one-lang-docs>>。）
  * 一种是每个 _field_ （域）有自己的主语音, 并包含一些其他语言的（参考 <<one-lang-fields>>。）
- * 一种是每个 _field_ （域）都是混合语言(参考 <<mixed-lang-fields>>。)
+ * 一种是每个 _field_ （域）都是混合语言（参考 <<mixed-lang-fields>>。）
 
 
 将每种语言的分隔开，这点并不是每次都能实现。在同一份倒排索引里含有混合语言是一个大问题。
@@ -45,14 +45,14 @@
 为了精确的计算相关性，你需要精确的统计term-frequency（词率）。
 
 
-一段德语出现在英语为主的文本中会给与德语单词更高的权重，给那么高权重是因为德语单词相对来说更稀有。
+一段德文出现在英语为主的文本中会给与德语单词更高的权重，给那么高权重是因为德语单词相对来说更稀有。
 但是如果这份文档跟以德语为主的文档混合在一起，那么这段德文就会有很低的权重。
 
 ==== 在搜索的时候
 
 
 然而仅仅考虑你的文档是不够的((("queries", "mixed languages and"))) 。你也需要考虑你的用户会怎么搜索这些文档。
-通常你能从用户选择的语言界面来确定用户的主语言。（例如， `mysite.de` 和  `mysite.fr` ），或者从用户的浏览器的HTTP header（http头文件）
+通常你能从用户选择的语言界面来确定用户的主语言。（例如， `mysite.de` 和  `mysite.fr` ），或者从用户的浏览器的HTTP header（HTTP头文件）
 http://www.w3.org/International/questions/qa-lang-priorities.en.php[`accept-language`] 确定。
 
 用户的搜索也注意有三个方面:
@@ -89,4 +89,4 @@ https://code.google.com/p/cld2/[Compact Language Detector] (CLD) 。
 
 
 确定用户搜索请求的语言并不是那么简单。CLD是为了至少200字符长的文本设计的。字符短的文本，例如搜索关键字，会产生不精确的结果。
-这种情况下，或许采取一些简单的学习算法会更好些，例如该国家的官方语言，用户选择的语言，和HTTP `accept-language` headers （http头文件）。
+这种情况下，或许采取一些简单的学习算法会更好些，例如该国家的官方语言，用户选择的语言，和HTTP `accept-language` headers （HTTP头文件）。
