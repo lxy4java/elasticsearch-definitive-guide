@@ -6,7 +6,7 @@
 ((("language analyzers", "configuring")))它们中的大多数都允许你控制它们的各方面行为，具体来说：
 
 [[stem-exclusion]]
-切词干扰:
+切词干扰::
 +
 想象下，某个场景，用户们想要搜索((("language analyzers", "configuring", "stem word exclusion")))
 ((("stemming words", "stem word exclusion, configuring"))) `'World Health Organization'` 的结果，
@@ -16,7 +16,7 @@
 
 
 
-自定义停用词:
+自定义停用词::
 
 英语中默认的停用词列表如下：((("stopwords", "configuring for language analyzers")))
 +
