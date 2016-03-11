@@ -3,7 +3,7 @@
 
 
 
-Elasticsearch 为很多世界流行语言提供良好的，简单的，开箱即用的支持语言分析器集合：
+Elasticsearch 为很多世界流行语言提供良好的、简单的、开箱即用的支持语言分析器集合：
 
 阿拉伯语， 亚美尼亚语， 巴斯克语， 巴西语， 保加利亚语， 加泰罗尼亚语， 中文，
 捷克语， 丹麦语， 荷兰语， 英语， 芬兰语， 法语， 加里西亚语，  德语， 希腊语，
@@ -14,19 +14,19 @@ Elasticsearch 为很多世界流行语言提供良好的，简单的，开箱即
 
 这些分析器((("language analyzers"， "roles performed by")))有以下四个典型规则：
 
-* 文本拆分为单词:
+* 文本拆分为单词：
 +
-`The quick brown foxes` -> [`The`， `quick`， `brown`， `foxes`]
+`The quick brown foxes` -> [ `The`, `quick`, `brown`, `foxes`]
 
-* 大写转小写:
+* 大写转小写：
 +
 `The` -> `the`
 
-* 移除常用的 _停用词_:
+* 移除常用的 _停用词_：
 +
-&#91;`The`， `quick`， `brown`， `foxes`] -> [`quick`， `brown`， `foxes`]
+&#91; `The`, `quick`, `brown`, `foxes`] -> [ `quick`, `brown`, `foxes`]
 
-* 将变型词（例如复数词，过去式）转化为词根:
+* 将变型词（例如复数词，过去式）转化为词根：
 +
 `foxes` -> `fox`
 
@@ -44,6 +44,6 @@ Elasticsearch 为很多世界流行语言提供良好的，简单的，开箱即
 `l'église` -> `eglis`
 
 * `德语` 分析器规范化了((("german analyzer")))切词， 将切词中的 `ä` 和 `ae` 替换为 `a`， 或将
-  `ß` 替换为 `ss`:
+  `ß` 替换为 `ss`：
 +
 `äußerst` -> `ausserst`
