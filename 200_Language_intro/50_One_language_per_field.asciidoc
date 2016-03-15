@@ -62,7 +62,7 @@ PUT /movies
 像 _index-per-language_ （一种语言一份索引）方法， _field-per-language_ （一种语言一个域）方法，
 也是为了维持干净的词频。它不像分开索引那么灵活。但是使用 <<updating-a-mapping,`update-mapping` API>> 添加一个新域也很简单，
 那些新域需要新的自定义分析器，这些新分析器只能在索引创建时被装配。有一个变通的方案，你可以先关闭这个索引  {ref}/indices-open-close.html[close] ，
-然后使用 {ref}/indices-update-settings.html[`update-settings` API] ，从新打开这个索引，但是关掉这个索引意味着得停止服务一段时间。
+然后使用 {ref}/indices-update-settings.html[`update-settings` API] ，重新打开这个索引，但是关掉这个索引意味着得停止服务一段时间。
 
 文档的((("boosting", "query-time", "boosting a field")))一种语言可以单独查询，也可以通过查询多个域来查询多种语言。
 我们甚至可以通过对特殊的字段加权重来设置优先级：
