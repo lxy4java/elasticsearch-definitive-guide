@@ -60,4 +60,4 @@ The World Health Organization does not sell organs.
 <3> 切词为 `world`, `health`, `organization`, `does`, `not`, `sell`, `organ`
 
 
-我们在<<stemming>>和<<stopwords>>中分别详细讨论了切词寻根和停用词。
+我们在<<stemming>>和<<stopwords>>中分别详细讨论了词干提取和停用词。
