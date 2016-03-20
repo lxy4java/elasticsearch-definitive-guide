@@ -1,10 +1,11 @@
 [[one-lang-docs]]
-=== One Language per Document
+=== 每份文档一种语言
 
-A single predominant language per document ((("languages", "one language per document")))((("indices", "documents in different languages")))requires a relatively simple setup.
-Documents from different languages can be stored in separate indices&#x2014;`blogs-en`,
-`blogs-fr`, and so forth&#x2014;that use the same type and the same fields for each index,
-just with different analyzers:
+每份文档一种语言 ((("languages", "one language per document")))((("indices", "documents in different languages")))仅仅需要一种相当简单的文档组织方式。
+多语言文档被分开存放在不同的索引中 &#x2014; `blogs-en`，
+`blogs-fr` ， 之类的 &#x2014; 这样每个索引就可以使用相同的类型和相同的域，只是使用不同的分析器：
+
+
 
 [source,js]
 --------------------------------------------------
@@ -36,19 +37,19 @@ PUT /blogs-fr
             }
 }}}}}}
 --------------------------------------------------
-<1> Both `blogs-en` and `blogs-fr` have a type called `post` that contains
-    the field `title`.
-<2> The `title.stemmed` subfield uses a language-specific analyzer.
+
+<1> `blogs-en` 和 `blogs-fr` 都有一个包含 `title` 域的类型 `post` 。
+
+<2> `title.stemmed` 子域使用了具体语言的分析器。
 
 
-This approach is clean and flexible.  New languages are easy to add--just
-create a new index--and because each language is completely separate, we
-don't suffer from the term-frequency and stemming problems described in
-<<language-pitfalls>>.
+这个方法干净且灵活。新语言很容易被添加--仅仅是创建一个新索引--因为每种语言都是彻底的被分开，
+我们不用遭受在 <<language-pitfalls>> 中描述的词频和切词为词根的问题。
 
-The documents of a single language can be queried independently, or queries
-can target multiple languages by querying multiple indices.  We can even
-specify a preference((("indices_boost parameter", "specifying preference for a specific language"))) for particular languages with the `indices_boost` parameter:
+
+单语言文档可以被分开请求, 或者通过查询多种索引来查询多种语言。
+我们甚至可以使用 `indices_boost` 参数为特定的语言添加优先权((("indices_boost parameter", "specifying preference for a specific language")))：
+
 
 [source,js]
 --------------------------------------------------
@@ -67,14 +68,14 @@ GET /blogs-*/post/_search <1>
     }
 }
 --------------------------------------------------
-<1> This search is performed on any index beginning with `blogs-`.
-<2> The `title.stemmed` fields are queried using the analyzer
-    specified in each index.
-<3> Perhaps the user's `accept-language` headers showed a preference for
-    English, and then French, so we boost results from each index accordingly.
-    Any other languages will have a neutral boost of `1`.
 
-==== Foreign Words
+<1> 这次查询会在所有以 `blogs-` 开头的索引中执行。
+
+<2>  `title.stemmed` 域查询时在各个的索引中具体语言使用具体的分析器。
+
+<3> 也许用户的 `accept-language` 头文件显示优先英语，法语次之， 相应的我们会为每个索引的结果添加权重。其他的语言拥有中性的权重1。
+
+==== 外语单词
 
 Of course, these documents may contain words or sentences in other languages,
 and these words are unlikely to be stemmed correctly.  With
@@ -82,6 +83,10 @@ predominant-language documents, this is not usually a major problem.  The user w
 often search for the exact words--for instance, of a quotation from another
 language--rather than for inflections of a word. Recall can be improved
 by using techniques explained in <<token-normalization>>.
+
+当然，有些文档含有一些其他语言的单词或句子，且不幸的是这些单词被切词了不正确的词根。
+对于主语言文档，这通常并不是主要的问题。用户经常需要搜索很精确的单词--例如，一个其他语言的引用--
+
 
 Perhaps some words like place names should be queryable in the predominant
 language and in the original language, such as _Munich_ and _München_.  These
