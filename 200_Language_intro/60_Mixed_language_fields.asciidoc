@@ -26,8 +26,8 @@
 ==== 切分到不同的域
 
 
-在 <<identifying-language>> 提到过的简洁语言探测器((("languages", "mixed language fields", "splitting into separate fields")))((("Compact Language Detector (CLD)")))
-可以告诉你哪部分文档属于哪种语言。 你可以用 <<one-lang-fields>> 中用过的一样的方法来根据语言切分文本。
+在 <<identifying-language>> 提到过的简洁语言探测器((("languages", "mixed language fields", "splitting into separate fields")))((("Compact Language Detector (CLD)")))可以告诉你哪部分文档属于哪种语言。
+你可以用 <<one-lang-fields>> 中用过的一样的方法来根据语言切分文本。
 
 ==== 进行多次分析
 
@@ -79,7 +79,7 @@ PUT /movies
 
 
 你可以使用 <<ngrams-compound-words>> 中描述的((("n-grams", "for mixed language fields")))((("languages", "mixed language fields", "n-grams, indexing words as")))方法索引所有的词汇为 n-grams。
-大多数语型变化包含给代词添加一个后缀（或在一些语言中添加前缀），所以通过将单词拆成 n-grams，你有很大的机会匹配到相似但不完全一样的单词。
+大多数语型变化包含给单词添加一个后缀（或在一些语言中添加前缀），所以通过将单词拆成 n-grams，你有很大的机会匹配到相似但不完全一样的单词。
 这个可以结合 _analyze-multiple times_ （多次分析）方法为不支持的语言提供全域抓取：
 
 
