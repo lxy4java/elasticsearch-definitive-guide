@@ -2,7 +2,7 @@
 === 每份文档一种语言
 
 每份文档一种语言 ((("languages", "one language per document")))((("indices", "documents in different languages")))仅仅需要一种相当简单的文档组织方式。
-多语言文档被分开存放在不同的索引中 &#x2014; `blogs-en`，
+多语言文档被分开存放在不同的索引中 &#x2014; `blogs-en` ，
 `blogs-fr` ， 之类的 &#x2014; 这样每个索引就可以使用相同的类型和相同的域，只是使用不同的分析器：
 
 
@@ -47,7 +47,7 @@ PUT /blogs-fr
 我们不用遭受在 <<language-pitfalls>> 中描述的词频和词干提取的问题。
 
 
-单语言文档可以被分开请求, 或者通过查询多种索引来查询多种语言。
+每一种语言的文档都可被独立查询，或者通过查询多种索引来查询多种语言。
 我们甚至可以使用 `indices_boost` 参数为特定的语言添加优先权((("indices_boost parameter", "specifying preference for a specific language")))：
 
 
