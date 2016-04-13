@@ -3,7 +3,7 @@
 
 
 任何全文检索的字符串域都默认使用 `standard` 分析器。((("standard analyzer")))
-如果你想重新实现 `standard` 分析器为 <<custom-analyzers,`custom`  分析器>> ，你可以按照如下所示定义：
+如果我们想要一个 <<custom-analyzers, `自定义` 分析器>> 分析器，可以按照如下定义方式重新实现 `标准` 分析器：
 
 [role="pagebreak-before"]
 [source,js]
