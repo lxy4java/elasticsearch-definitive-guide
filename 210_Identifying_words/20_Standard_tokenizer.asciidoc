@@ -43,8 +43,7 @@ You're my 'favorite'.
 ==================================================
 
 
-`uax_url_email` （标准Email URL分词器）分词的方式和 `标准分词器` 一样。不过它只能识别email地址和URLs并且将这些输出为单个词汇单元。
-`标准分词器`则不一样，会将email地址和URLs拆分成独立的单词，例如，email地址 `joe-bloggs@foo-bar.com` 的分词结果为 `joe` ， `bloggs` ， `foo` ， `bar.com` 。
+`uax_url_email` （标准Email URL分词器）分词的方式和 `标准分词器` 一样。不过它只能识别email地址和URLs并且将这些输出为单个词汇单元。 `标准分词器` 则不一样，会将email地址和URLs拆分成独立的单词，例如，email地址 `joe-bloggs@foo-bar.com` 的分词结果为 `joe` ， `bloggs` ， `foo` ， `bar.com` 。
 
 ==================================================
 
