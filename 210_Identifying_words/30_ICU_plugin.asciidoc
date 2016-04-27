@@ -21,7 +21,7 @@ ICU插件是处理英语之外语言的必需工具，非常推荐你装载并�
 ./bin/plugin -install elasticsearch/elasticsearch-analysis-icu/$VERSION <1>
 --------------------------------------------------
 
-<1> 当前 `$VERSION` （版本）可以在一下地址找到
+<1> 当前 `$VERSION` （版本）可以在以下地址找到
     _https://github.com/elasticsearch/elasticsearch-analysis-icu_.
 
 
