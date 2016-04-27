@@ -37,9 +37,8 @@ GET /_analyze?tokenizer=icu_tokenizer
   _continuous rain_ （连续不断的下雨,梅雨）。当在合并第四个字符， 式，
   意思是 _style_ （样式），五月雨式这个单词则成了一种不屈不挠持续不断的东西的形容词。
 
-Although each character may be a word in its own right, tokens are more
-meaningful when they retain the bigger original concept instead of just the
-component parts:
+
+虽然每个字符本身可以是一个单词，词汇单元保持更大的原始概念比仅作为一个词组的一部份要有有意的多：
 
 [source,js]
 --------------------------------------------------
@@ -50,11 +49,10 @@ GET /_analyze?tokenizer=icu_tokenizer
 向日葵
 --------------------------------------------------
 
-The `standard` tokenizer in the preceding example would emit each character
-as a separate token: `向`, `日`, `葵`. The `icu_tokenizer` would
-emit the single token `向日葵` (sunflower).
 
-Another difference between the `standard` tokenizer and the `icu_tokenizer` is
-that the latter will break a word containing characters written in different
-scripts (for example, `βeta`) into separate tokens&#x2014;`β`, `eta`&#x2014;while the
-former will emit the word as a single token: `βeta`.
+
+`标准分词器` 在前面的例子中将每个字符输出为单独的词汇单元： `向` ， `日` ， `葵` 。 `icu_分词器` 会输出单个词汇单元 `向日葵` （sunflower） 。
+
+
+
+`标准分词器` 和 `icu_分词器` 的另一个不同的地方是后者会将不同书写方式的字符（例如，`βeta` ）拆分我独立的词汇单元 &#x2014;`β` ，`eta`&#x2014; ，而前者则会输出单个词汇单元： `βeta` 。
