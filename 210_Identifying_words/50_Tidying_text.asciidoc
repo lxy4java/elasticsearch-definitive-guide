@@ -1,17 +1,13 @@
 [[char-filters]]
-=== Tidying Up Input Text
+=== 整理输入文本
 
-Tokenizers produce the best results when the input text is clean, valid
-text, where _valid_ means that it follows the punctuation rules that the
-Unicode algorithm expects.((("text", "tidying up text input for tokenizers")))((("words", "identifying", "tidying up text input")))  Quite often, though, the text we need to process
-is anything but clean. Cleaning it up before tokenization improves the quality
-of the output.
 
-==== Tokenizing HTML
+当输入文本是干净的时候分词器提供最佳分词结果，有效文本，这里 _有效_ 指的是遵从Unicode算法期望的标点符号规则((("text", "tidying up text input for tokenizers")))((("words", "identifying", "tidying up text input")))。
+很多时候，然而我们需要处理的文本会是除了干净文本之外的任何东西。在分词之前整理文本会提升输出结果的质量。
 
-Passing HTML through the `standard` tokenizer or the `icu_tokenizer` produces
-poor results.((("HTML, tokenizing")))  These tokenizers just don't know what to do with the HTML tags.
-For example:
+==== 分词 HTML
+
+将HTML通过 `标准分词器` 或 `icu_分词器` 分词将产生糟糕的结果((("HTML, tokenizing")))。这些分词器不知道如果处理HTML标签。例如：
 
 [source,js]
 --------------------------------------------------
@@ -19,18 +15,14 @@ GET /_analyzer?tokenizer=standard
 <p>Some d&eacute;j&agrave; vu <a href="http://somedomain.com>">website</a>
 --------------------------------------------------
 
-The `standard` tokenizer((("standard tokenizer", "tokenizing HTML"))) confuses HTML tags and entities, and emits the
-following tokens: `p`, `Some`, `d`, `eacute`, `j`, `agrave`, `vu`, `a`,
-`href`, `http`, `somedomain.com`, `website`, `a`.  Clearly not what was
-intended!
+`标准分词器` ((("standard tokenizer", "tokenizing HTML")))会混淆HTML标签和实体，并且输出一下词汇单元： `p` ， `Some` ， `d` ， `eacute` ， `j` ， `agrave` ， `vu` ， `a` ，
+`href` ， `http` ， `somedomain.com` ， `website` ， `a` 。这些词汇单元显然不知所云！
 
-_Character filters_ can be added to an analyzer to ((("character filters")))preprocess the text
-_before_ it is passed to the tokenizer.  In this case, we can use the
-`html_strip` character filter((("analyzers", "adding character filters to")))((("html_strip character filter"))) to remove HTML tags and to decode HTML entities
-such as `&eacute;` into the corresponding Unicode characters.
 
-Character filters can be tested out via the `analyze` API by specifying them
-in the query string:
+_字符过滤器_ 可以添加进分析器中，在将文本传给分词器之前预处理该文本。在这种情况下，我们可以用 `html_strip` 字符过滤器((("analyzers", "adding character filters to")))((("html_strip character filter")))移除HTML标签并编码HTML实体如 `&eacute;` 为一致的Unicode字符。
+
+
+字符过滤器可以通过 `analyze` API进行测试，这需要在查询字符串中指明他们：
 
 [source,js]
 --------------------------------------------------
@@ -38,8 +30,7 @@ GET /_analyzer?tokenizer=standard&char_filters=html_strip
 <p>Some d&eacute;j&agrave; vu <a href="http://somedomain.com>">website</a>
 --------------------------------------------------
 
-To use them as part of the analyzer, they should be added to a `custom`
-analyzer definition:
+想将它们作为分析器的一部分使用，需要把它们添加到分词器定义里：
 
 [source,js]
 --------------------------------------------------
@@ -58,7 +49,8 @@ PUT /my_index
 }
 --------------------------------------------------
 
-Once created, our new `my_html_analyzer` can be tested with the `analyze` API:
+
+一旦创建好之后， 我们新的 `my_html_analyzer` 就可以用 `analyze` API 测试：
 
 [source,js]
 --------------------------------------------------
@@ -66,9 +58,10 @@ GET /my_index/_analyzer?analyzer=my_html_analyzer
 <p>Some d&eacute;j&agrave; vu <a href="http://somedomain.com>">website</a>
 --------------------------------------------------
 
-This emits the tokens that we expect: `Some`, ++déjà++, `vu`, `website`.
 
-==== Tidying Up Punctuation
+这次输出的词汇单元才是我们期望的： `Some` ， ++déjà++ ， `vu` ， `website` 。
+
+==== 整理标点符号
 
 The `standard` tokenizer and `icu_tokenizer` both understand that an
 apostrophe _within_ a word should be treated as part of the word, while single
@@ -77,26 +70,26 @@ quotes that _surround_ a word should not.((("standard tokenizer", "handling of p
 Unfortunately,((("apostrophes"))) Unicode lists a few characters that are sometimes used
 as apostrophes:
 
-`U+0027`:: 
+`U+0027`::
       Apostrophe (`'`)&#x2014;the original ASCII character
-      
-`U+2018`:: 
+
+`U+2018`::
       Left single-quotation mark (`‘`)&#x2014;opening quote when single-quoting
-      
-`U+2019`:: 
+
+`U+2019`::
       Right single-quotation mark (`’`)&#x2014;closing quote when single-quoting, but also the  preferred character to use as an apostrophe
 
 Both tokenizers treat these three characters as an apostrophe (and thus as
 part of the word) when they appear within a word. Then there are another three
 apostrophe-like characters:
 
-`U+201B`:: 
+`U+201B`::
       Single high-reversed-9 quotation mark (`‛`)&#x2014;same as `U+2018` but differs in appearance
-      
-`U+0091`:: 
+
+`U+0091`::
       Left single-quotation mark in ISO-8859-1&#x2014;should not be used in Unicode
-      
-`U+0092`:: 
+
+`U+0092`::
       Right single-quotation mark in ISO-8859-1&#x2014;should not be used in Unicode
 
 Both tokenizers treat these three characters as word boundaries--a place to
@@ -162,4 +155,3 @@ This example returns the following tokens, with all of the in-word
 quotation marks replaced by apostrophes: `You're`, `my`, `favorite`, `M'Coy`.
 
 The more effort that you put into ensuring that the tokenizer receives good-quality input, the better your search results will be.
-
