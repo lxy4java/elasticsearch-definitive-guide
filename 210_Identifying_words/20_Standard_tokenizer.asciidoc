@@ -1,7 +1,7 @@
 [[standard-tokenizer]]
 === 标准分词器
 
-分词器接受一个字符串作为输入，将((("words", "identifying", "using standard tokenizer")))((("standard tokenizer")))((("tokenizers")))这个字符串拆分成单独的词，或 _词汇单元_
+分词器接受一个字符串作为输入，将((("words", "identifying", "using standard tokenizer")))((("standard tokenizer")))((("tokenizers")))这个字符串拆分成单独的词或 _词汇单元_
 （也许可以描述成类似标点的符号），并且输出一个词汇单元流作为输出。
 
 
@@ -25,7 +25,7 @@ You're the 1st runner home!
 
 
 
-`标准分词器` ((("Unicode Text Segmentation algorithm"))) 使用Unicode文本分割算法（定义在 http://unicode.org/reports/tr29/[Unicode Standard Annex #29]）来寻找单词间的界限，并且输出界限之间的任何东西。Unicode技术使其可以成功的分词包含混合语言的文本。
+`标准分词器` ((("Unicode Text Segmentation algorithm"))) 使用 Unicode 文本分割算法（定义在 http://unicode.org/reports/tr29/[Unicode Standard Annex #29]）来寻找单词间的界限，并且输出界限之间的任何东西。 Unicode 技术使其可以成功的分词包含混合语言的文本。
 
 
 标点符号可能是单词的一部分，也可能不是，这取决于它出现的位置：
