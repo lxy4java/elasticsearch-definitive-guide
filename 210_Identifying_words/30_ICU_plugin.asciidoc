@@ -1,20 +1,20 @@
 [[icu-plugin]]
-=== 装载 ICU 插件
+=== 安装 ICU 插件
 
 
-Elasticsearch的 https://github.com/elasticsearch/elasticsearch-analysis-icu[ICU 分析器插件] 使用 _国际化组件Unicode_ (ICU)函数库（详情查看 http://site.icu-project.org[site.project.org] ）提供丰富的处理Unicode工具。
+Elasticsearch的 https://github.com/elasticsearch/elasticsearch-analysis-icu[ICU 分析器插件] 使用 _国际化组件 Unicode_ (ICU) 函数库（详情查看 http://site.icu-project.org[site.project.org] ）提供丰富的处理 Unicode 工具。
 这些包含对处理亚洲语言特别有用的 `icu_分词器` ，还有很多除英语之外的必要分词过滤器，这些分词过滤器用于正确匹配和所有语言排序。
 
 [NOTE]
 ==================================================
 
-ICU插件是处理英语之外语言的必需工具，非常推荐你装载并使用它，不幸的是，因为是基于额外的ICU函数库，
+ICU插件是处理英语之外语言的必需工具，非常推荐你安装并使用它，不幸的是，因为是基于额外的ICU函数库，
 不同版本的ICU插件可能并不兼容之前的版本，当更新插件的时候，你需要重新索引你的数据。
 
 ==================================================
 
 
-装载这个插件，第一步先关掉你的Elasticsearch节点，然后在Elasticsearch的主目录运行以下命令：
+安装这个插件，第一步先关掉你的Elasticsearch节点，然后在Elasticsearch的主目录运行以下命令：
 
 [source,sh]
 --------------------------------------------------
@@ -25,9 +25,9 @@ ICU插件是处理英语之外语言的必需工具，非常推荐你装载并�
     _https://github.com/elasticsearch/elasticsearch-analysis-icu_.
 
 
-一旦装载后，重启Elasticsearch，你将会看到类似如下的一条启动日志：
+一旦安装后，重启Elasticsearch，你将会看到类似如下的一条启动日志：
 
 
     [INFO][plugins] [Mysterio] loaded [marvel, analysis-icu], sites [marvel]
 
-如果你有很多节点并以集群方式运行的，你需要在集群的每个节点都装载这个插件。
+如果你有很多节点并以集群方式运行的，你需要在集群的每个节点都安装这个插件。
