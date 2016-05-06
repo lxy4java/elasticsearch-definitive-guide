@@ -2,12 +2,12 @@
 === 整理输入文本
 
 
-当输入文本是干净的时候分词器提供最佳分词结果，有效文本，这里 _有效_ 指的是遵从Unicode算法期望的标点符号规则((("text", "tidying up text input for tokenizers")))((("words", "identifying", "tidying up text input")))。
+当输入文本是干净的时候分词器提供最佳分词结果，有效文本，这里 _有效_ 指的是遵从 Unicode 算法期望的标点符号规则((("text", "tidying up text input for tokenizers")))((("words", "identifying", "tidying up text input")))。
 很多时候，然而我们需要处理的文本会是除了干净文本之外的任何东西。在分词之前整理文本会提升输出结果的质量。
 
 ==== 分词 HTML
 
-将HTML通过 `标准分词器` 或 `icu_分词器` 分词将产生糟糕的结果((("HTML, tokenizing")))。这些分词器不知道如果处理HTML标签。例如：
+将 HTML 通过 `标准分词器` 或 `icu_分词器` 分词将产生糟糕的结果((("HTML, tokenizing")))。这些分词器不知道如果处理 HTML 标签。例如：
 
 [source,js]
 --------------------------------------------------
@@ -15,14 +15,14 @@ GET /_analyzer?tokenizer=standard
 <p>Some d&eacute;j&agrave; vu <a href="http://somedomain.com>">website</a>
 --------------------------------------------------
 
-`标准分词器` ((("standard tokenizer", "tokenizing HTML")))会混淆HTML标签和实体，并且输出一下词汇单元： `p` ， `Some` ， `d` ， `eacute` ， `j` ， `agrave` ， `vu` ， `a` ，
+`标准分词器` ((("standard tokenizer", "tokenizing HTML")))会混淆 HTML 标签和实体，并且输出一下词汇单元： `p` ， `Some` ， `d` ， `eacute` ， `j` ， `agrave` ， `vu` ， `a` ，
 `href` ， `http` ， `somedomain.com` ， `website` ， `a` 。这些词汇单元显然不知所云！
 
 
-_字符过滤器_ 可以添加进分析器中，在将文本传给分词器之前预处理该文本。在这种情况下，我们可以用 `html_strip` 字符过滤器((("analyzers", "adding character filters to")))((("html_strip character filter")))移除HTML标签并编码HTML实体如 `&eacute;` 为一致的Unicode字符。
+_字符过滤器_ 可以添加进分析器中，在将文本传给分词器之前预处理该文本。在这种情况下，我们可以用 `html_strip` 字符过滤器((("analyzers", "adding character filters to")))((("html_strip character filter")))移除 HTML 标签并编码 HTML 实体如 `&eacute;` 为一致的 Unicode 字符。
 
 
-字符过滤器可以通过 `analyze` API进行测试，这需要在查询字符串中指明他们：
+字符过滤器可以通过 `analyze` API 进行测试，这需要在查询字符串中指明他们：
 
 [source,js]
 --------------------------------------------------
@@ -99,7 +99,7 @@ GET /my_index/_analyzer?analyzer=my_html_analyzer
 第二个俩字符或许可以被你的文字处理软件打出来，这取决于这款软件的年纪。
 
 
-即使在使用可以“接受”的引号标记时，一个用单引号书写的词 &#x2014;`You’re`&#x2014; 也和一个用撇号书写的词 &#x2014;`You're`&#x2014; 不一样，这意味着搜索其中的一个变体将会找不到另一个。
+即使在使用可以“接受”的引号标记时，一个用单引号书写的词 &#x2014; `You’re` &#x2014; 也和一个用撇号书写的词 &#x2014; `You're` &#x2014; 不一样，这意味着搜索其中的一个变体将会找不到另一个。
 
 
 幸运的是，可以用 `mapping` 字符过滤器分类这些混乱的字符，((("character filters", "mapping character filter")))((("mapping character filter")))
