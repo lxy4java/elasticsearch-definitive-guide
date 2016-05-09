@@ -5,7 +5,7 @@
 当输入文本是干净的时候分词器提供最佳分词结果，有效文本，这里 _有效_ 指的是遵从 Unicode 算法期望的标点符号规则((("text", "tidying up text input for tokenizers")))((("words", "identifying", "tidying up text input")))。
 很多时候，然而我们需要处理的文本会是除了干净文本之外的任何东西。在分词之前整理文本会提升输出结果的质量。
 
-==== 分词 HTML
+==== HTML 分词
 
 将 HTML 通过 `标准分词器` 或 `icu_分词器` 分词将产生糟糕的结果((("HTML, tokenizing")))。这些分词器不知道如果处理 HTML 标签。例如：
 
@@ -15,8 +15,8 @@ GET /_analyzer?tokenizer=standard
 <p>Some d&eacute;j&agrave; vu <a href="http://somedomain.com>">website</a>
 --------------------------------------------------
 
-`标准分词器` ((("standard tokenizer", "tokenizing HTML")))会混淆 HTML 标签和实体，并且输出一下词汇单元： `p` ， `Some` ， `d` ， `eacute` ， `j` ， `agrave` ， `vu` ， `a` ，
-`href` ， `http` ， `somedomain.com` ， `website` ， `a` 。这些词汇单元显然不知所云！
+`标准分词器` ((("standard tokenizer", "tokenizing HTML")))会混淆 HTML 标签和实体，并且输出以下词汇单元： `p` 、 `Some` 、 `d` 、 `eacute` 、 `j` 、 `agrave` 、 `vu` 、 `a` 、
+`href` 、 `http` 、 `somedomain.com` 、 `website` 、 `a` 。这些词汇单元显然不知所云！
 
 
 _字符过滤器_ 可以添加进分析器中，在将文本传给分词器之前预处理该文本。在这种情况下，我们可以用 `html_strip` 字符过滤器((("analyzers", "adding character filters to")))((("html_strip character filter")))移除 HTML 标签并编码 HTML 实体如 `&eacute;` 为一致的 Unicode 字符。
@@ -30,7 +30,7 @@ GET /_analyzer?tokenizer=standard&char_filters=html_strip
 <p>Some d&eacute;j&agrave; vu <a href="http://somedomain.com>">website</a>
 --------------------------------------------------
 
-想将它们作为分析器的一部分使用，需要把它们添加到分词器定义里：
+想将它们作为分析器的一部分使用，需要把它们添加到 `custom` 类型的自定义分析器里：
 
 [source,js]
 --------------------------------------------------
