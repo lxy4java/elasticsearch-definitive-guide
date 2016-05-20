@@ -1,5 +1,5 @@
 [[stemming]]
-== Reducing Words to Their Root Form
+== 将单词还原为词根
 
 Most languages of the world are _inflected_, meaning ((("languages", "inflection in")))((("words", "stemming", see="stemming words")))((("stemming words")))that words can change
 their form to express differences in the following:
@@ -69,6 +69,3 @@ First we will discuss the two classes of stemmers available in Elasticsearch&#x2
 choose the right stemmer for your needs in <<choosing-a-stemmer>>.  Finally,
 we will discuss options for tailoring stemming in <<controlling-stemming>> and
 <<stemming-in-situ>>.
-
-
-
