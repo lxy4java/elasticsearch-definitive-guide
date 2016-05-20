@@ -7,7 +7,7 @@
 
 
 
-有趣的是词汇识别的算法。 `whitespace` （空格）分词器((("whitespace tokenizer")))仅仅按空格 -- 空白，tabs，换行符等等拆分 -- 想象下单个词汇单元的连续的无空格字符串。例如：
+有趣的是词汇识别的算法。 `whitespace` （空格）分词器((("whitespace tokenizer")))仅仅按空格 -- 空白、tabs、换行符等等拆分 -- 想象下单个词汇单元的连续的无空格字符串。例如：
 
 
 [source,js]
@@ -18,10 +18,10 @@ You're the 1st runner home!
 
 这个请求会返回如下词:
 
-`You're` ， `the` ， `1st` ， `runner` ， `home!`
+`You're` 、 `the` 、 `1st` 、 `runner` 、 `home!`
 
 
-`字符分词器` ，在另一方面，按照任何非字符进行拆分，这样的话将会返回((("letter tokenizer")))如下单词： `You` ， `re` ， `the` ， `st` ， `runner` ， `home` 。
+`字符分词器` ，在另一方面，按照任何非字符进行拆分，这样的话将会返回((("letter tokenizer")))如下单词： `You` 、 `re` 、 `the` 、 `st` 、 `runner` 、 `home` 。
 
 
 
@@ -37,13 +37,13 @@ You're my 'favorite'.
 --------------------------------------------------
 
 
-在这个例子中，`You're` 中的撇号被视为单词的一部分，然而 `'favorite'` 中的单引号则不会被视为单词的一部分，所以分词结果如下： `You're` ， `my` ， `favorite` 。
+在这个例子中，`You're` 中的撇号被视为单词的一部分，然而 `'favorite'` 中的单引号则不会被视为单词的一部分，所以分词结果如下： `You're` 、 `my` 、 `favorite` 。
 
 [TIP]
 ==================================================
 
 
-`uax_url_email` （标准Email URL分词器）分词的方式和 `标准分词器` 一样。不过它只能识别email地址和URLs并且将这些输出为单个词汇单元。 `标准分词器` 则不一样，会将email地址和URLs拆分成独立的单词，例如，email地址 `joe-bloggs@foo-bar.com` 的分词结果为 `joe` ， `bloggs` ， `foo` ， `bar.com` 。
+`uax_url_email` （标准Email URL分词器）分词的方式和 `标准分词器` 一样。不过它只能识别email地址和URLs并且将这些输出为单个词汇单元。 `标准分词器` 则不一样，会将email地址和URLs拆分成独立的单词，例如，email地址 `joe-bloggs@foo-bar.com` 的分词结果为 `joe` 、 `bloggs` 、 `foo` 、 `bar.com` 。
 
 ==================================================
 
