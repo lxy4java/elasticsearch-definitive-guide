@@ -17,4 +17,4 @@
 
 
 在 <<token-normalization>> （标准化词汇单元）和 <<stopwords>> （停用词）中，我们讨论了 `lowercase` （小写字母）和 `stop` （停用词） _词汇单元过滤器_ ，
-但是现在，我们集中在 `standard` _tokenizer_ （标准分词器）
+但是现在，我们专注于 `standard` _tokenizer_ （标准分词器）
