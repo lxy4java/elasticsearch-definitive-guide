@@ -3,7 +3,7 @@
 
 Elasticsearch 中的大部分 stemmers （词干提取器）是基于算法的，它们为将一个词提取为它的词根形式提供了一系列规则，例如剥离复数词末尾的 `s` 或 `es` 。它们提取单词词干不需知道该词的任何事情。
 
-这些基于算法的 stemmers 优点是：可以作为插件使用，速度快，占用内存少，有规律的单词处理效果好。缺点是：没规律的单词例如 `be` 、 `are` 、和 `am` ，或 `mice` 和 `mouse` 。
+这些基于算法的 stemmers 优点是：可以作为插件使用，速度快，占用内存少，有规律的单词处理效果好。缺点是：没规律的单词例如 `be` 、 `are` 、和 `am` ，或 `mice` 和 `mouse` 效果不好。
 
 最早的一个基于算法((("English", "stemmers for")))((("Porter stemmer for English")))的英文词干提取器是 Porter stemmer ，该英文词干提取器现在依然推荐使用。 Martin Porter 后来为了开发词干提取算法创建了 http://snowball.tartarus.org/[Snowball language] 网站， 很多((("Snowball langauge (stemmers)"))) Elasticsearch 中使用的词干提取器就是用 Snowball 语言写的。
 
