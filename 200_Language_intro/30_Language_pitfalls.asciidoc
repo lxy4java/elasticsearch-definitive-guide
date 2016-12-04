@@ -45,7 +45,7 @@
 ==== 在搜索的时候
 
 然而仅仅考虑你的文档是不够的 ((("queries", "mixed languages and"))) 。你也需要考虑你的用户会怎么搜索这些文档。
-通常你能从用户选择的语言界面来确定用户的主语言。（例如， `mysite.de` 和  `mysite.fr` ） 或者从用户的浏览器的HTTP header（HTTP头文件）
+通常你能从用户选择的语言界面来确定用户的主语言，（例如， `mysite.de` 和  `mysite.fr` ） 或者从用户的浏览器的HTTP header（HTTP头文件）
 http://www.w3.org/International/questions/qa-lang-priorities.en.php[`accept-language`] 确定。
 
 用户的搜索也注意有三个方面:
@@ -63,7 +63,7 @@ http://www.w3.org/International/questions/qa-lang-priorities.en.php[`accept-lang
 ==== 语言识别
 
 
-你很可能已经知道你的文档所选用的语言，或者你的文档只是在你自己的组织内编写并被翻译成确定的一系列语言。人类的预识别或许是最可靠的将语言正确归类的方法。
+你很可能已经知道你的文档所选用的语言，或者你的文档只是在你自己的组织内编写并被翻译成确定的一系列语言。人类的预识别可能是最可靠的将语言正确归类的方法。
 
 然而，或许你的文档来自第三方资源且没经过语言归类，或者是不正确的归类。这种情况下，你需要一个学习算法来归类你文档的主语言。幸运的是，一些语言有现成的工具包可以帮你解决这个问题。
 
