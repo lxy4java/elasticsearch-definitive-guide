@@ -15,7 +15,7 @@
 
 ===== 不合理的词干提取
 
-德语的词干提取规则跟英语，法语，瑞典语等是不一样的。 ((("stemming words", "incorrect stemming in multilingual documents")))为不同的语言提供同样的词干提规则
+德语的词干提取规则跟英语，法语，瑞典语等是不一样的。 ((("stemming words", "incorrect stemming in multilingual documents"))) 为不同的语言提供同样的词干提规则
 将会导致有的词的词根找的正确，有的词的词根找的不正确，有的词根本找不到词根。 甚至是将不同语言的不同含义的词切为同一个词根，合并这些词根的搜索结果会给用户带来困恼。
 
 提供多种的词干提取器轮流切分同一份文档的结果很有可能得到一堆垃圾，因为下一个词干提取器会尝试切分一个已经被缩减为词干的单词，这加剧了上面提到的问题。
@@ -34,10 +34,10 @@
 
 ************************************************
 
-===== 不合理的倒排文档
+===== 不正确的倒排文档频率
 
-在 <<relevance-intro>> （相关性教程）中，一个term（词）在一份文档中出现的频率约高，该term（词）的权重就越低。
-为了精确的计算相关性，你需要精确的统计term-frequency（词频）。
+在 <<relevance-intro>> （相关性教程）中，一个 term （词）在一份文档中出现的频率约高，该term（词）的权重就越低。
+为了精确的计算相关性，你需要精确的统计 term-frequency （词频）。
 
 一段德文出现在英语为主的文本中会给与德语单词更高的权重，给那么高权重是因为德语单词相对来说更稀有。
 但是如果这份文档跟以德语为主的文档混合在一起，那么这段德文就会有很低的权重。
@@ -57,7 +57,7 @@ http://www.w3.org/International/questions/qa-lang-priorities.en.php[`accept-lang
 根据你搜索数据的类型，或许会返回单语言的合适结果（例如，一个用户在西班牙网站搜索商品），也可能是用户主语言的搜索结果和其他语言的搜索结果混合。
 
 
-通常来说，给与用户语言偏好的搜索很有意义。一个使用英语的用户搜索时更希望看到英语Wikipedia页面而不是法语Wikipedia页面。
+通常来说，给与用户语言偏好的搜索很有意义。一个使用英语的用户搜索时更希望看到英语 Wikipedia 页面而不是法语 Wikipedia 页面。
 
 [[identifying-language]]
 ==== 语言识别
@@ -72,8 +72,8 @@ http://blog.mikemccandless.com/2013/08/a-new-version-of-compact-language.html[Mi
 https://github.com/mikemccand/chromium-compact-language-detector[chromium-compact-language-detector]
 工具包，使用的是google开发的基于 (http://www.apache.org/licenses/LICENSE-2.0[Apache License 2.0])的开源工具包
 https://code.google.com/p/cld2/[Compact Language Detector] (CLD) 。
-它小巧，快速，((("Compact Language Detector (CLD)")))且精确，并能根据短短的两句话就可以检测160+的语言。
-它甚至能对单块文本检测多种语言。支持多种开发语言包括Python，Perl，JavaScript，PHP，C#/.NET，和R。
+它小巧，快速，((("Compact Language Detector (CLD)")))且精确，并能根据短短的两句话就可以检测 160+ 的语言。
+它甚至能对单块文本检测多种语言。支持多种开发语言包括 Python，Perl，JavaScript，PHP，C#/.NET，和 R 。
 
-确定用户搜索请求的语言并不是那么简单。CLD 是为了至少200字符长的文本设计的。字符短的文本，例如搜索关键字，会产生不精确的结果。
+确定用户搜索请求的语言并不是那么简单。 CLD 是为了至少 200 字符长的文本设计的。字符短的文本，例如搜索关键字，会产生不精确的结果。
 这种情况下，或许采取一些简单的启发式算法会更好些，例如该国家的官方语言，用户选择的语言，和 HTTP `accept-language` headers （HTTP头文件）。
